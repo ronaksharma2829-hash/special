@@ -1,0 +1,206 @@
+body{
+margin:0;
+font-family:Poppins;
+background:linear-gradient(135deg,#022c22,#065f46,#022c22);
+height:100vh;
+overflow:hidden;
+color:white;
+}
+
+
+/* REAL MOON */
+
+.moon-container{
+position:fixed;
+left:-350px;
+top:50%;
+transform:translateY(-50%);
+width:900px;
+z-index:-5;
+}
+
+.moon{
+width:100%;
+opacity:0.9;
+filter:drop-shadow(0 0 40px rgba(255,255,200,0.8))
+drop-shadow(0 0 80px rgba(255,255,200,0.6));
+animation:moonRotate 120s linear infinite;
+}
+
+@keyframes moonRotate{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+
+/* STARS */
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+background:url("https://www.transparenttextures.com/patterns/stardust.png");
+animation:moveStars 80s linear infinite;
+opacity:0.5;
+z-index:-4;
+}
+
+@keyframes moveStars{
+from{background-position:0 0;}
+to{background-position:1000px 1000px;}
+}
+
+
+/* LANTERNS */
+
+.lantern{
+position:fixed;
+width:40px;
+height:60px;
+background:gold;
+border-radius:8px;
+box-shadow:0 0 15px gold;
+animation:floatLantern 15s linear infinite;
+}
+
+.lantern1{left:20%;}
+.lantern2{left:50%;}
+.lantern3{left:75%;}
+
+@keyframes floatLantern{
+from{bottom:-100px;}
+to{bottom:110%;}
+}
+
+
+/* FOOD ICONS */
+
+.food-bg span{
+position:absolute;
+font-size:28px;
+opacity:0.25;
+animation:foodFloat 20s linear infinite;
+}
+
+.food-bg span:nth-child(1){left:10%}
+.food-bg span:nth-child(2){left:30%}
+.food-bg span:nth-child(3){left:50%}
+.food-bg span:nth-child(4){left:70%}
+.food-bg span:nth-child(5){left:85%}
+.food-bg span:nth-child(6){left:60%}
+
+@keyframes foodFloat{
+0%{transform:translateY(100vh)}
+100%{transform:translateY(-120vh)}
+}
+
+
+/* PAGES */
+
+.page{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+opacity:0;
+pointer-events:none;
+transition:0.6s;
+}
+
+.page.active{
+opacity:1;
+pointer-events:auto;
+}
+
+
+/* CARD */
+
+.card{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(12px);
+padding:50px;
+border-radius:25px;
+width:600px;
+text-align:center;
+box-shadow:0 0 30px rgba(255,215,0,0.4);
+animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
+}
+
+h1{
+font-family:'Playfair Display';
+font-size:48px;
+color:#ffd700;
+}
+
+h2{
+color:#ffd700;
+}
+
+button{
+margin-top:30px;
+padding:14px 35px;
+border:none;
+border-radius:40px;
+background:#ffd700;
+color:black;
+font-size:17px;
+cursor:pointer;
+}
+/* MOBILE RESPONSIVE */
+
+@media (max-width:768px){
+
+.card{
+
+width:85%;
+padding:30px;
+
+}
+
+h1{
+
+font-size:34px;
+
+}
+
+h2{
+
+font-size:26px;
+
+}
+
+button{
+
+padding:12px 25px;
+font-size:15px;
+
+}
+
+/* smaller moon for phone */
+
+.moon-container{
+
+left:-250px;
+width:600px;
+
+}
+
+/* smaller floating food */
+
+.food-bg span{
+
+font-size:20px;
+
+}
+
+}
