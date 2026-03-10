@@ -1,5 +1,5 @@
 let currentPage = 1;
-const totalPages = 6;
+const totalPages = 8;
 
 /* PAGE SWITCH */
 
@@ -19,7 +19,7 @@ if(currentPage===2){
 typeMessage();
 }
 
-if(currentPage===6){
+if(currentPage===7){
 startFireworks();
 }
 
@@ -35,7 +35,6 @@ function typeMessage(){
 let text="Ayat... out of billions of people on the internet, somehow the universe connected us.";
 
 let i=0;
-
 let speed=50;
 
 function typing(){
@@ -45,7 +44,6 @@ if(i<text.length){
 document.getElementById("typingText").innerHTML+=text.charAt(i);
 
 i++;
-
 setTimeout(typing,speed);
 
 }
@@ -62,7 +60,6 @@ typing();
 function startFireworks(){
 
 let canvas=document.getElementById("fireworks");
-
 let ctx=canvas.getContext("2d");
 
 canvas.width=window.innerWidth;
@@ -102,5 +99,31 @@ requestAnimationFrame(animate);
 }
 
 animate();
+
+}
+
+
+/* EIDI MONEY RAIN */
+
+function openGift(){
+
+document.getElementById("eidiMessage").style.display="block";
+
+for(let i=0;i<40;i++){
+
+let money=document.createElement("div");
+money.classList.add("money");
+money.innerHTML="💸";
+
+money.style.left=Math.random()*100+"vw";
+money.style.animationDuration=(Math.random()*2+2)+"s";
+
+document.getElementById("moneyContainer").appendChild(money);
+
+setTimeout(()=>{
+money.remove();
+},4000);
+
+}
 
 }
